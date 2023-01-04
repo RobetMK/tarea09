@@ -24,7 +24,7 @@ const GreetingF = (props) => {
 
 
 GreetingF.propTypes = {
-
+    name: PropTypes.string,
 };
 
 
