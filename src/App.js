@@ -9,6 +9,7 @@ import LifeCycleExample from './components/pure/lifeCycleExample';
 /* import Greeting from './components/pure/greeting'; */
 /* import GreetingF from './components/pure/greetingF'; */
 /* import TaskListComponent from './components/container/task_list'; */
+import GreetingStyled from './components/pure/greetingStyled';
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
             {/* Todo lo que hay aquí, es tratado como props.children//
             <h3>Contenido del props.children--</h3>
           </Ejemplo4> */}
-          <LifeCycleExample></LifeCycleExample>
+          {/* <LifeCycleExample></LifeCycleExample> */}
+          <GreetingStyled name = "martin"></GreetingStyled>
       </header>
     </div>
   );
