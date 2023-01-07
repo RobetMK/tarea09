@@ -8,6 +8,7 @@
 /* import Ejemplo1 from './hooks/Ejemplo1'; */
 /* import Greeting from './components/pure/greeting'; */
 /* import GreetingF from './components/pure/greetingF'; */
+/* import Father from './components/container/father'; */
 import TaskListComponent from './components/container/task_list';
 /* import GreetingStyled from './components/pure/greetingStyled'; */
 
@@ -19,7 +20,6 @@ function App() {
           {/* Componente propio Greeting.js */}
           {/* <Greeting name="Martín"></Greeting> */}
           {/* <GreetingF name="Martín"></GreetingF> */}
-          <TaskListComponent></TaskListComponent>
           {/* <Ejemplo1></Ejemplo1> */}
           {/* <Ejemplo2></Ejemplo2> */}
           {/* <MiComponenteConContexto></MiComponenteConContexto> */}
@@ -29,6 +29,8 @@ function App() {
           </Ejemplo4> */}
           {/* <LifeCycleExample></LifeCycleExample> */}
           {/* <GreetingStyled name = "martin"></GreetingStyled> */}
+          {/* <Father></Father> */}
+          <TaskListComponent></TaskListComponent>
       </header>
     </div>
   );
