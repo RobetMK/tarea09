@@ -1,5 +1,6 @@
 /* import logo from './logo.svg'; */
-/* import './App.css'; */
+import './App.css';
+import ContactListComponent from './components/container/contact_list';
 /* import LifeCycleExample from './components/pure/lifeCycleExample'; */
 /* import Ejemplo4 from './hooks/Ejemplo4'; */
 /* import MiComponenteConContexto from './hooks/Ejemplo3'; */
@@ -9,7 +10,7 @@
 /* import Greeting from './components/pure/greeting'; */
 /* import GreetingF from './components/pure/greetingF'; */
 /* import Father from './components/container/father'; */
-import TaskListComponent from './components/container/task_list';
+/* import TaskListComponent from './components/container/task_list'; */
 /* import GreetingStyled from './components/pure/greetingStyled'; */
 
 function App() {
@@ -30,7 +31,8 @@ function App() {
           {/* <LifeCycleExample></LifeCycleExample> */}
           {/* <GreetingStyled name = "martin"></GreetingStyled> */}
           {/* <Father></Father> */}
-          <TaskListComponent></TaskListComponent>
+          {/* <TaskListComponent></TaskListComponent> */}
+          <ContactListComponent></ContactListComponent>
       </header>
     </div>
   );

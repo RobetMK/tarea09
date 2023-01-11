@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Task } from '../../models/task.class';
-
-//importamos la hoja de estilos task.scss
-import '../../styles/task.scss'
 import { LEVELS } from '../../models/levels.enum';
+//importamos la hoja de estilos task.scss
+import '../../styles/task.scss';
 
-const TaskComponent = ({task}) => {
+const TaskComponent = ({task, complete, remove}) => {
 
     useEffect(() => {
-        console.log('Created Task creado')
+        console.log('Child: Task created first time')
         return () => {
-            console.log(`Task: ${task.name} is going to unmount`)
+            console.log(`Child: ${task.name} is going to unmount`)
         };
     }, [task]);
     /**
@@ -53,9 +52,9 @@ const TaskComponent = ({task}) => {
      */
     function taskIconCompleted(){
         if(task.completed){
-            return ( <i className='bi-toggle-on' style={{color:'green', fontWeight:'bold'}}></i> )
+            return ( <i onClick={()=>complete(task)} className='bi-toggle-on task-action' style={{color:'green', fontWeight:'bold'}}></i> )
         } else {
-            return ( <i className='bi-toggle-off' style={{color:'grey'}}></i> )
+            return ( <i onClick={()=>complete(task)} className='bi-toggle-off task-action' style={{color:'grey'}}></i> )
         }
     }
     
@@ -72,7 +71,10 @@ const TaskComponent = ({task}) => {
             </td>
             <td className='align-middle'>
                 {taskIconCompleted()}
-                <i className='bi-trash' style={{color:'tomato', fontSize:'20px'}}></i>
+                <i  className='bi-trash task-action' 
+                    onClick={()=>remove(task)} 
+                    style={{color:'tomato', fontSize:'20px'}}>
+                </i>
             </td>
         </tr>
     );
@@ -80,7 +82,9 @@ const TaskComponent = ({task}) => {
 
 
 TaskComponent.propTypes = {
-    task: PropTypes.instanceOf(Task)
+    task: PropTypes.instanceOf(Task),
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 };
 
 

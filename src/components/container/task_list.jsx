@@ -15,22 +15,46 @@ const TaskListComponent = () => {
     const [loading, setLoading] = useState(true);
     //Control del ciclo de vida del componente
     useEffect(() => {
-        console.log('Modificación de tareas[task state has been modified')
+        console.log('Father: [task state has been modified')
         setLoading(false)
         return () => {
-            console.log('Taslist componente is goin to unmount')
+            console.log('Father: ....Task...')
         };
     }, [tasks]);
-    const changeCompleted = (id)=>{
-        console.log('TODO: Cambiar estado de una tarea')
+    
+    function completeTask(task){
+        console.log('Complete thist Task::: ', task)
+        const index = tasks.indexOf(task)
+        const tempTasks = [...tasks]
+        tempTasks[index].completed = !tempTasks[index].completed
+        //We update the state of the componente with the new list of task and it will update the
+        //Iteration of the task in order to show the task updated
+        setTasks(tempTasks)
     }
+
+    function deleteTask(task){
+        console.log('Deleted Task: ', task)
+        const index = tasks.indexOf(task)
+        const tempTasks = [...tasks]
+        tempTasks.splice(index,1)
+        setTasks(tempTasks)
+    }
+
+    function addTask(task){
+        console.log('Deleted Task: ', task)
+        const tempTasks = [...tasks]
+        tempTasks.push(task)
+        setTasks(tempTasks)
+    }
+
     return (
         <div>
+            <TaskForm add = {addTask} ></TaskForm>
             <div className='col-12'>
                 <div className='card'>
                     {/* Card header (title) */}
                     <div className='card-header p-3'>
-                        <h5>Your-task:</h5>
+                        <h5>--Your--task-- :</h5>
                     </div>
                     {/* Card Body (content) */}
                     <div 
@@ -41,28 +65,31 @@ const TaskListComponent = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    <th scope='col'>Title</th>
-                                    <th scope='col'>Description</th>
-                                    <th scope='col'>Priority</th>
+                                    <th scope='col'>Title /</th>
+                                    <th scope='col'>Description /</th>
+                                    <th scope='col'>Priority /</th>
                                     <th scope='col'>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                { tasks.map((task, index)=>{
-                                    return(
-                                        <TaskComponent 
-                                            key={index} 
-                                            task={task}
-                                        ></TaskComponent>
-                                    )
-                                })}
+                                { 
+                                    tasks.map( (task, index)=>{
+                                        return(
+                                            <TaskComponent 
+                                                key = {index} 
+                                                task = {task}
+                                                complete = {completeTask}
+                                                remove = {deleteTask}
+                                            ></TaskComponent>
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </div>
-                    <TaskForm></TaskForm>
+                    
                 </div>
             </div>
-            {/* <TaskComponent task={defaultTask}></TaskComponent> */}
         </div>
     );
 };
