@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+/* Modelos */
 import { LEVELS } from '../../models/levels.enum';
 import { Task } from '../../models/task.class';
 import TaskForm from '../pure/forms/taskForm';
@@ -16,7 +17,9 @@ const TaskListComponent = () => {
     //Control del ciclo de vida del componente
     useEffect(() => {
         console.log('Father: [task state has been modified')
-        setLoading(false)
+        setTimeout(()=>{
+            setLoading(false)
+        }, 3000)
         return () => {
             console.log('Father: ....Task...')
         };
@@ -46,15 +49,51 @@ const TaskListComponent = () => {
         tempTasks.push(task)
         setTasks(tempTasks)
     }
-
+    const Table = ()=>{
+        return(
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>Title /</th>
+                        <th scope='col'>Description /</th>
+                        <th scope='col'>Priority /</th>
+                        <th scope='col'>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    { 
+                        tasks.map( (task, index)=>{
+                            return(
+                                <TaskComponent 
+                                    key = {index} 
+                                    task = {task}
+                                    complete = {completeTask}
+                                    remove = {deleteTask}
+                                ></TaskComponent>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+        )
+    }
+    let tasksTable = <Table></Table>
+    if(tasks.length > 0){
+        tasksTable = <Table></Table>
+    } else{
+        tasksTable = (<>
+            <h3>There are no tasks to show</h3>
+            <h4>Please, create one</h4>
+        </> )
+    }
     return (
         <div>
-            <TaskForm add = {addTask} ></TaskForm>
+            <TaskForm add = {addTask} length = {tasks.length}></TaskForm>
             <div className='col-12'>
                 <div className='card'>
                     {/* Card header (title) */}
                     <div className='card-header p-3'>
-                        <h5>--Your--task-- :</h5>
+                        <h5>Your task:</h5>
                     </div>
                     {/* Card Body (content) */}
                     <div 
@@ -62,30 +101,7 @@ const TaskListComponent = () => {
                         style={{position:'relative', height:'400px'}}
                         data-mdb-perfect-scrollbar='true'
                     >
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope='col'>Title /</th>
-                                    <th scope='col'>Description /</th>
-                                    <th scope='col'>Priority /</th>
-                                    <th scope='col'>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                { 
-                                    tasks.map( (task, index)=>{
-                                        return(
-                                            <TaskComponent 
-                                                key = {index} 
-                                                task = {task}
-                                                complete = {completeTask}
-                                                remove = {deleteTask}
-                                            ></TaskComponent>
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </table>
+                        {loading ? (<p>Loading Tasks...</p>):tasksTable}
                     </div>
                     
                 </div>

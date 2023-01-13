@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import { LEVELS } from '../../../models/levels.enum';
 import { Task } from '../../../models/task.class';
 
-const TaskForm = ({add}) => {
+const TaskForm = ({add, length}) => {
     const nameRef = useRef('')
     const descriptionRef = useRef('')
     const levelRef = useRef(LEVELS.NORMAL)
@@ -37,11 +37,13 @@ const TaskForm = ({add}) => {
                 />
                 <label htmlFor='selectLevel' className='sr-only'>Priority</label>
                 <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectLevel'>
-                    <option value={LEVELS.NORMAL}>NORMAL</option>
+                    <option value={LEVELS.NORMAL} style={{backgroundColor:'blue'}}>NORMAL</option>
                     <option value={LEVELS.URGENT}>URGENT</option>
                     <option value={LEVELS.BLOCKING}>BLOCKING</option>
                 </select>
-                <button type='submit' className='btn btn-success btn-lg ms-2'>Add</button>
+                <button type='submit' className='btn btn-success btn-lg ms-2'>
+                    {length > 0 ? 'Add new':'Create first'}
+                </button>
             </div>
         </form>
     );
