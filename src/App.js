@@ -1,6 +1,6 @@
 /* import logo from './logo.svg'; */
-import './App.css';
-import ContactListComponent from './components/container/contact_list';
+/* import './App.css'; */
+/* import ContactListComponent from './components/container/contact_list'; */
 /* import LifeCycleExample from './components/pure/lifeCycleExample'; */
 /* import Ejemplo4 from './hooks/Ejemplo4'; */
 /* import MiComponenteConContexto from './hooks/Ejemplo3'; */
@@ -11,6 +11,8 @@ import ContactListComponent from './components/container/contact_list';
 /* import GreetingF from './components/pure/greetingF'; */
 /* import Father from './components/container/father'; */
 /* import TaskListComponent from './components/container/task_list'; */
+import OptionalRender from './components/pure/optionalRender';
+import Tarea12 from './components/pure/tarea12';
 /* import GreetingStyled from './components/pure/greetingStyled'; */
 
 function App() {
@@ -32,7 +34,11 @@ function App() {
           {/* <GreetingStyled name = "martin"></GreetingStyled> */}
           {/* <Father></Father> */}
           {/* <TaskListComponent></TaskListComponent> */}
-          <ContactListComponent></ContactListComponent>
+          {/* Ejemplos de Renderizado condicional */}
+          {/* <OptionalRender></OptionalRender> */}
+          <Tarea12></Tarea12>
+          {/* PROYECTO FINAL */}
+          {/* <ContactListComponent></ContactListComponent> */}
       </header>
     </div>
   );
