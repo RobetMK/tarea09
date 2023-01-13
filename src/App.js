@@ -1,5 +1,6 @@
 /* import logo from './logo.svg'; */
 import './App.css';
+import LoginFormik from './components/pure/forms/loginFormik';
 /* import ContactListComponent from './components/container/contact_list'; */
 /* import LifeCycleExample from './components/pure/lifeCycleExample'; */
 /* import Ejemplo4 from './hooks/Ejemplo4'; */
@@ -10,7 +11,7 @@ import './App.css';
 /* import Greeting from './components/pure/greeting'; */
 /* import GreetingF from './components/pure/greetingF'; */
 /* import Father from './components/container/father'; */
-import TaskListComponent from './components/container/task_list';
+/* import TaskListComponent from './components/container/task_list'; */
 /* import OptionalRender from './components/pure/optionalRender'; */
 /* import Tarea12 from './components/pure/tarea12'; */
 /* import GreetingStyled from './components/pure/greetingStyled'; */
@@ -38,7 +39,9 @@ function App() {
           {/* <Tarea12></Tarea12> */}
           {/* <ContactListComponent></ContactListComponent> */}
           {/* PROYECTO FINAL */}
-          <TaskListComponent></TaskListComponent>
+          {/* <TaskListComponent></TaskListComponent> */}
+          {/* Ejemplos de uso de Formik y Yup */}
+          <LoginFormik></LoginFormik>
       </header>
     </div>
   );
