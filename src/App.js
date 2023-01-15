@@ -1,6 +1,7 @@
 /* import logo from './logo.svg'; */
 import './App.css';
-import LoginFormik from './components/pure/forms/loginFormik';
+import RegisterFormik from './components/pure/forms/registerFormik';
+/* import LoginFormik from './components/pure/forms/loginFormik'; */
 /* import ContactListComponent from './components/container/contact_list'; */
 /* import LifeCycleExample from './components/pure/lifeCycleExample'; */
 /* import Ejemplo4 from './hooks/Ejemplo4'; */
@@ -41,7 +42,8 @@ function App() {
           {/* PROYECTO FINAL */}
           {/* <TaskListComponent></TaskListComponent> */}
           {/* Ejemplos de uso de Formik y Yup */}
-          <LoginFormik></LoginFormik>
+          {/* <LoginFormik></LoginFormik> */}
+          <RegisterFormik></RegisterFormik>
       </header>
     </div>
   );
