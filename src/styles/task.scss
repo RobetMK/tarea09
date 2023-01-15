@@ -3,9 +3,10 @@
 }
 .task-completed{
     color: grey;
+    font-size: small;
     text-decoration: line-through;
 }
 .task-pending{
     font-weight: bold;
-    color: tomato;
+    color: black;
 }

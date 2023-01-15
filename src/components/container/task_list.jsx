@@ -19,7 +19,7 @@ const TaskListComponent = () => {
         console.log('Father: [task state has been modified')
         setTimeout(()=>{
             setLoading(false)
-        }, 3000)
+        }, 1500)
         return () => {
             console.log('Father: ....Task...')
         };
@@ -44,7 +44,7 @@ const TaskListComponent = () => {
     }
 
     function addTask(task){
-        console.log('Deleted Task: ', task)
+        console.log('Added Task: ', task)
         const tempTasks = [...tasks]
         tempTasks.push(task)
         setTasks(tempTasks)
@@ -54,9 +54,9 @@ const TaskListComponent = () => {
             <table>
                 <thead>
                     <tr>
-                        <th scope='col'>Title /</th>
-                        <th scope='col'>Description /</th>
-                        <th scope='col'>Priority /</th>
+                        <th scope='col'>Title</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Priority</th>
                         <th scope='col'>Action</th>
                     </tr>
                 </thead>
