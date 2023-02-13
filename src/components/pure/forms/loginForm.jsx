@@ -3,17 +3,17 @@
  * autenticación de usuarios.
  */
 
-import React {useState, useEffect} from 'react';
+//import {useState, useEffect} from 'react';
 
 const LoginForm = () => {
-    const initialData = [{
+  /*   const initialData = [{
         user:'',
         name: '',
         email: '',
-        password:''
-    }];
+        password:'',
+    }]; */
 
-    const [data, setData] = useState(initialData);
+    //const [data, setData] = useState(initialData);
     return (
         <div>
             

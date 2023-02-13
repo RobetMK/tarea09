@@ -55,7 +55,7 @@ const TaskForm = ({add, length}) => {
                 validationSchema = {taskSchema}
                 // *** onSubmit Event 
                 onSubmit = {async(values)=>{
-                    await new Promise((r)=>setTimeout(r,2000));
+                    await new Promise((r)=>setTimeout(r,1000));
                     alert(JSON.stringify(values, null, 2));
                     //we save data in the browser
                     //localStorage.setItem('credential', values)
@@ -96,7 +96,7 @@ const TaskForm = ({add, length}) => {
                 }
 
                 <label htmlFor="selectLevel">Priority</label>
-                <select id='selectLevel' className='form-control'>
+                <select id='level' name="level" className='form-control'>
                     <option value={LEVELS.NORMAL} style={{backgroundColor:'blue', color:'white'}}>NORMAL</option>
                     <option value={LEVELS.URGENT} style={{backgroundColor:'yellow'}}>URGENT</option>
                     <option value={LEVELS.BLOCKING} style={{backgroundColor:'red'}}>BLOCKING</option>
